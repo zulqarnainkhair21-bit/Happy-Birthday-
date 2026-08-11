@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Little Birthday Surprise 💗</title>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{overflow:hidden;font-family:'Poppins',sans-serif;background:radial-gradient(circle at 20% 20%,#ffd7e8,transparent 30%),radial-gradient(circle at 80% 80%,#ffc2dc,transparent 30%),linear-gradient(135deg,#ffb5d3,#fff0f7,#ffc8df);color:#6d3150}
+.container{height:100vh;width:100%;position:relative;overflow:hidden}
+.screen{position:absolute;inset:0;display:none;justify-content:center;align-items:center;text-align:center;padding:20px;opacity:0}
+.screen.active{display:flex;animation:appear 1s forwards}
+@keyframes appear{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
+.card{width:min(92%,650px);padding:42px 30px;border-radius:35px;background:rgba(255,255,255,.62);backdrop-filter:blur(18px);border:2px solid rgba(255,255,255,.8);box-shadow:0 20px 70px rgba(170,50,100,.18);z-index:10}
+.tiny{font-size:13px;letter-spacing:3px;text-transform:uppercase;color:#b54877;margin-bottom:12px}
+h1,h2{font-family:'Pacifico',cursive;color:#df4285;text-shadow:0 5px 18px rgba(220,50,120,.18)}
+h1{font-size:clamp(48px,10vw,85px)}
+h2{font-size:clamp(32px,7vw,58px);margin-bottom:15px}
+p{line-height:1.8}.message{max-width:550px;margin:15px auto 25px;font-size:17px}
+button{border:none;padding:15px 30px;border-radius:50px;background:linear-gradient(135deg,#ff4b98,#d83278);color:white;font-size:16px;font-weight:600;cursor:pointer;box-shadow:0 10px 30px rgba(210,45,110,.3);transition:.3s}
+button:hover{transform:translateY(-4px) scale(1.04)}button:active{transform:scale(.94)}
+.tap{margin-top:15px;font-size:12px;opacity:.65}
+.age{font-size:clamp(90px,18vw,145px);font-weight:700;line-height:1;background:linear-gradient(135deg,#ff398d,#b52f70);-webkit-background-clip:text;color:transparent}
+.cake{position:relative;width:230px;height:145px;margin:10px auto 25px}
+.cakeBottom{position:absolute;bottom:0;width:230px;height:70px;background:linear-gradient(#ff91bb,#ec5792);border-radius:15px 15px 25px 25px}
+.cakeMiddle{position:absolute;bottom:58px;left:15px;width:200px;height:45px;background:#ffdbea;border-radius:15px}
+.cream{position:absolute;bottom:82px;left:25px;width:180px;height:28px;background:white;border-radius:50%}
+.candle{position:absolute;bottom:103px;width:10px;height:42px;background:repeating-linear-gradient(45deg,white 0 5px,#ff5c9e 5px 10px);border-radius:5px}
+.candle:nth-of-type(1){left:75px}.candle:nth-of-type(2){left:110px}.candle:nth-of-type(3){left:145px}
+.flame{position:absolute;bottom:140px;width:15px;height:22px;background:#ffd45c;border-radius:50% 50% 50% 0;transform:rotate(-45deg);animation:flicker .5s infinite alternate}
+.flame:nth-of-type(1){left:73px}.flame:nth-of-type(2){left:108px}.flame:nth-of-type(3){left:143px}
+@keyframes flicker{from{transform:rotate(-45deg) scale(1)}to{transform:rotate(-45deg) scale(1.15)}}
+.wishBox{margin:25px auto;padding:25px;border-radius:25px;background:rgba(255,235,244,.7);border:1px solid rgba(220,70,130,.15)}
+.wishLine{opacity:0;transform:translateY(15px);margin:12px 0}.wishLine.show{animation:lineIn .8s forwards}
+@keyframes lineIn{to{opacity:1;transform:translateY(0)}}
+.heart{position:absolute;bottom:-40px;pointer-events:none;animation:heartUp linear forwards;z-index:3}
+@keyframes heartUp{to{transform:translateY(-115vh) rotate(360deg);opacity:0}}
+.balloon{position:absolute;width:55px;height:70px;bottom:-100px;border-radius:50%;animation:balloonUp linear forwards;z-index:4}
+.balloon:after{content:"";position:absolute;top:65px;left:50%;width:2px;height:90px;background:rgba(90,40,60,.25)}
+@keyframes balloonUp{to{transform:translateY(-120vh) rotate(15deg)}}
+.confetti{position:absolute;top:-30px;animation:fall linear forwards;z-index:20}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg)}}
+.signature{margin-top:22px;font-family:'Pacifico',cursive;font-size:25px;color:#df4285}
+@media(max-width:600px){.card{padding:32px 20px}.message{font-size:15px}.cake{transform:scale(.8);margin-top:-5px;margin-bottom:0}}
+</style>
+</head>
+<body>
+<div class="container">
+<section class="screen active" id="s1"><div class="card"><div class="tiny">A little surprise 💗</div><h1>Aqsa</h1><p class="message">Some birthdays deserve a little more effort...<br>and yours definitely does. 🎀</p><button onclick="next()">💗 Open Your Surprise</button><div class="tap">tap gently... something cute is waiting ✨</div></div></section>
+<section class="screen" id="s2"><div class="card"><div class="tiny">Chapter 21 ✨</div><div class="age">21</div><h2>Twenty-One Looks Beautiful</h2><p class="message">A new year of your life begins today —<br>more memories, more laughter,<br>more little moments worth remembering. 🌸</p><button onclick="balloons()">🎈 Make It Rain Balloons</button></div></section>
+<section class="screen" id="s3"><div class="card"><div class="tiny">One birthday tradition 🎂</div><div class="cake"><div class="cream"></div><div class="cakeMiddle"></div><div class="cakeBottom"></div><div class="candle"></div><div class="candle"></div><div class="candle"></div><div class="flame"></div><div class="flame"></div><div class="flame"></div></div><h2>Make A Wish 💕</h2><p class="message">Close your eyes for a moment...<br>think of something your heart really wants,<br>then blow out the candles. 🕯️</p><button onclick="blow()">🕯️ Blow The Candles</button></div></section>
+<section class="screen" id="s4"><div class="card"><div class="tiny">Something from the heart 💌</div><h2>My Wish For You</h2><div class="wishBox"><p class="wishLine">🌸 I wish you countless reasons to smile.</p><p class="wishLine">✨ I wish you success in everything you choose.</p><p class="wishLine">💗 I wish the people around you always value<br>the beautiful person you are.</p><p class="wishLine">🌷 I wish your difficult days become easier<br>and your happiest days become unforgettable.</p><p class="wishLine">🎀 And most importantly...<br>I wish you always have a reason to believe<br>that beautiful things are waiting for you.</p></div><button onclick="next()">💕 There's One More Thing</button></div></section>
+<section class="screen" id="s5"><div class="card"><div class="tiny">The final little surprise 🎀</div><h2>Happy Birthday 💗</h2><p class="message">I hope today reminds you of just how loved,<br>appreciated and special you are.</p><p class="message">Keep that beautiful smile,<br>keep chasing the things that make you happy,<br>and never lose the little things that make you... you. 🌸</p><p class="message">May 21 be the beginning of one of<br>the most beautiful chapters of your life.<br>✨</p><div class="signature">Happy Birthday, Aqsa 💕<br>— MRB</div><div style="font-size:42px;margin-top:20px;">🎂 🎈 🌸 💗 ✨ 🎀</div></div></section>
+</div>
+<script>
+let current=1, audio;
+function initAudio(){if(!audio)audio=new(window.AudioContext||window.webkitAudioContext)();if(audio.state==="suspended")audio.resume()}
+function popSound(){initAudio();let osc=audio.createOscillator(),gain=audio.createGain();osc.frequency.setValueAtTime(300,audio.currentTime);osc.frequency.exponentialRampToValueAtTime(70,audio.currentTime+.15);gain.gain.setValueAtTime(.25,audio.currentTime);gain.gain.exponentialRampToValueAtTime(.001,audio.currentTime+.15);osc.connect(gain);gain.connect(audio.destination);osc.start();osc.stop(audio.currentTime+.15)}
+function celebrationSound(){initAudio();[523,659,784,1046].forEach((freq,i)=>{let osc=audio.createOscillator(),gain=audio.createGain();osc.frequency.value=freq;gain.gain.setValueAtTime(.15,audio.currentTime+i*.15);gain.gain.exponentialRampToValueAtTime(.001,audio.currentTime+i*.15+.5);osc.connect(gain);gain.connect(audio.destination);osc.start(audio.currentTime+i*.15);osc.stop(audio.currentTime+i*.15+.5)})}
+function next(){initAudio();document.getElementById("s"+current).classList.remove("active");current++;document.getElementById("s"+current).classList.add("active");if(current===4){setTimeout(showWish,500);celebrationSound();confetti()}if(current===5){celebrationSound();confetti();hearts()}}
+function balloons(){initAudio();const colors=["#ff4b98","#ff8fbb","#ffc1dc","#d94b8b","#ffffff"];for(let i=0;i<20;i++){let b=document.createElement("div");b.className="balloon";b.style.left=Math.random()*100+"%";b.style.background=colors[Math.floor(Math.random()*colors.length)];b.style.animationDuration=5+Math.random()*5+"s";b.style.animationDelay=Math.random()*1.5+"s";document.querySelector(".container").appendChild(b);setTimeout(()=>b.remove(),10000)}setTimeout(()=>{popSound();setTimeout(next,1000)},900)}
+function blow(){initAudio();document.querySelectorAll(".flame").forEach(f=>{f.style.opacity="0";f.style.transform="translateY(-20px) rotate(-45deg) scale(.2)"});popSound();setTimeout(next,1200)}
+function showWish(){document.querySelectorAll(".wishLine").forEach((line,i)=>{setTimeout(()=>line.classList.add("show"),i*650)})}
+function confetti(){const symbols=["💗","💕","✨","🌸","🎀","🎉"];for(let i=0;i<70;i++){let c=document.createElement("div");c.className="confetti";c.innerHTML=symbols[Math.floor(Math.random()*symbols.length)];c.style.left=Math.random()*100+"%";c.style.fontSize=12+Math.random()*18+"px";c.style.animationDuration=3+Math.random()*4+"s";c.style.animationDelay=Math.random()*2+"s";document.querySelector(".container").appendChild(c);setTimeout(()=>c.remove(),8000)}}
+function hearts(){setInterval(()=>{let h=document.createElement("div");h.className="heart";h.innerHTML=["💗","💕","💖","💓","💞"][Math.floor(Math.random()*5)];h.style.left=Math.random()*100+"%";h.style.fontSize=16+Math.random()*22+"px";h.style.animationDuration=5+Math.random()*5+"s";document.querySelector(".container").appendChild(h);setTimeout(()=>h.remove(),10000)},600)}
+document.addEventListener("click",initAudio,{once:true});
+</script>
+</body>
+</html>
